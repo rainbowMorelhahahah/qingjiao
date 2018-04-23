@@ -23,8 +23,28 @@ export default class Index extends React.Component {
                 url: '',
             },
             dialogVisible: false,
-            dialogImageUrl: ''
+            dialogImageUrl: '',
+            thumbList: []
         };
+
+        const params = this.props.match.params;
+
+        this._design.find(params.id).then(
+            (res) => {
+
+                console.log(this);
+                const _data = res.data;
+                    
+                this.setState({
+                    form: _data.data,
+                    thumbList: [{
+                        name: Math.random(16),
+                        url: _data.data.thumb
+                    }]
+                });
+            }
+        )
+
     }
 
     onChange(key, value) {
@@ -69,7 +89,7 @@ export default class Index extends React.Component {
 
     handleSubmit() {
         console.log(this.state.form);
-        this._design.create(this.state.form).then(
+        _design.create(this.state.form).then(
             (res) => {
                 const _data = res.data;
                 Message({
@@ -89,7 +109,7 @@ export default class Index extends React.Component {
                 <Card header={
                     <div className="clearfix">
                         <span style={{ "lineHeight": "36px" }}>
-                            新增设计
+                            编辑商品
                         </span>
                     </div>
                 }>
@@ -107,9 +127,11 @@ export default class Index extends React.Component {
                         </Form.Item>
 
                         <Form.Item label="缩略图">
+                         
                             <Upload
                                 action={conf.appUrl + '/uploader'}
                                 onSuccess={(res, file) => { this.handleUploadImage(res, file) }}
+                                fileList={this.state.thumbList}
                             >
                                 <Button size="small" type="primary">点击上传</Button>
                             </Upload>

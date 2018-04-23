@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, Form, Input, Upload, Button, Dialog, Switch, Layout, MessageBox, Message } from 'element-react';
 
 import conf from 'config/app.js';
 
 import Design from 'servers/desigen.jsx';
+
+import Masonry from 'react-masonry-component';
 
 export default class Index extends React.Component {
     _design = null;
@@ -57,27 +60,27 @@ export default class Index extends React.Component {
 
     render() {
         return (
-            <div class="admin-content">
+            <div class="admin-content" style={{ paddingBottom: 80 }}>
 
                 <Layout.Row gutter="20">
-
-                    {this.state.list.map((el) => {
-                        return (
-                            <Layout.Col span="4">
-                                <Card>
-                                    <img src={conf.staticUrl + el.thumb} style={{ maxWidth: '100%' }} />
-                                    <div style={{ padding: 14 }}>
-                                        <span class="text-nowrap">{el.title}</span>
-                                        <div className="bottom clearfix">
-                                            <Button type="text" className="button">编辑</Button>
-                                            <Button type="text" className="button" onClick={() => { this.handlDoDelete(el) }}>删除</Button>
+                    <Masonry>
+                        {this.state.list.map((el) => {
+                            return (
+                                <Layout.Col span="4">
+                                    <Card style={{ marginBottom: 10 }}>
+                                        <img src={conf.staticUrl + el.thumb} style={{ maxWidth: '100%' }} />
+                                        <div style={{ padding: 14 }}>
+                                            <span class="text-nowrap">{el.title}</span>
+                                            <div className="bottom clearfix">
+                                            <Button type="text" className="button"><Link to={{pathname:`/admin/prdouct/${el.id}/editor`}}>编辑</Link></Button>
+                                                <Button type="text" className="button" onClick={() => { this.handlDoDelete(el) }}>删除</Button>
+                                            </div>
                                         </div>
-                                    </div>
-                                </Card>
-                            </Layout.Col>
-                        );
-                    })}
-
+                                    </Card>
+                                </Layout.Col>
+                            );
+                        })}
+                    </Masonry>
                 </Layout.Row>
 
             </div>

@@ -14,7 +14,7 @@ import AdminErrorPage from 'pages/admin/error.jsx';
 import AdminPermission from 'pages/admin/permission/index.jsx';
 import AdminPrdouctIndex from 'pages/admin/prdouct/index.jsx';
 import AdminPrdouctCreate from 'pages/admin/prdouct/create.jsx';
-
+import AdminPrdouctEdtior from 'pages/admin/prdouct/edtior.jsx';
 
 import HomeIndex from 'pages/home/index.jsx';
 
@@ -35,6 +35,7 @@ class WebRouter extends React.Component {
                                 {/* 产品管理 */}
                                 <Route exact path="/admin/prdouct" component={AdminPrdouctIndex} />
                                 <Route exact path="/admin/prdouct/create" component={AdminPrdouctCreate} />
+                                <Route exact path="/admin/prdouct/:id/editor" component={AdminPrdouctEdtior} />
                                 {/* 权限 */}
                                 <Route exact path="/admin/permission" component={AdminPermission} />
                                 {/* 喔图管理 */}

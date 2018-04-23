@@ -30,6 +30,12 @@ export default class Design {
         });
     }
 
+    find(id) {
+        return axios.get(appconfig.appUrl + `/design/${id}/find`, this.config).catch((err) => {
+            this.catch(err);
+        });
+    }
+
     catch(err) {
         if (err.response) {
             if (err.response.status == 401) {
