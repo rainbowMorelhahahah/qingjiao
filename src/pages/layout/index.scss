@@ -1,0 +1,207 @@
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(230, 237, 243);
+    color: #333;
+}
+
+.left-aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background: rgba(33, 150, 243, 1.0);
+    margin: 0;
+    padding: 0;
+    box-shadow: 0px 0px 5px rgba(15, 15, 15, .6);
+    .logo {
+        position: relative;
+        width: 200px;
+        height: 60px;
+    }
+    .el-menu {
+        background: rgba(33, 150, 243, 1.0);
+        .el-submenu,
+        .el-menu-item {
+            &:hover {
+                background-color: #1D8CE0;
+            }
+            &.is-active {
+                background-color: #1D8CE0;
+            }
+            .el-submenu__title {
+                color: #fff;
+                &:hover {
+                    background-color: #1D8CE0;
+                }
+            }
+            .el-menu-item-group__title {
+                color: #fff;
+                border-top: 1px solid rgba(29, 131, 231, 1.0);
+            }
+            border-top: 1px solid rgba(29, 131, 231, 1.0);
+            color: #fff;
+        }
+        a {
+            display: block;
+            text-decoration: none;
+            color: #fff;
+        }
+        .el-submenu {
+            &.is-opened {
+                .el-submenu__title {
+                    background-color: #1D8CE0;
+                }
+            }
+        }
+    }
+}
+
+.cl {
+    clear: both;
+}
+
+.admin-header {
+    height: 60px;
+    margin-left: 200px;
+    border-bottom: 1px solid rgba(15, 15, 15, .3);
+    background-color: rgb(255, 255, 255);
+    line-height: 60px;
+    .admin-header-right {
+        padding-right: 20px;
+        float: right;
+        .el-icon--right {
+            font-size: 12px;
+            transform: scale(0.6);
+        }
+        .user-cover {
+            position: relative;
+            display: inline-block;
+            max-width: 40px;
+            max-height: 40px;
+            border-radius: 100%;
+            vertical-align: middle;
+            margin-left: 15px;
+        }
+    }
+    .admin-header-left {
+        float: left;
+        padding-left: 20px;
+    }
+}
+
+.admin-footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    margin-left: 200px;
+}
+
+.admin-content {
+    margin-left: 200px;
+    padding: 20px;
+}
+
+.menu {
+    position: relative;
+    list-style: none;
+    padding-left: 0;
+    margin: 0px;
+    .menu-item {
+        position: relative;
+        display: block;
+        border-bottom: 1px solid rgba(29, 131, 231, 1.0);
+        padding: 20px 0px 20px 20px;
+        margin-top: -1px;
+        text-decoration: none;
+        color: #fff;
+        &.selected {
+            background-color: rgba(29, 131, 231, 1.0);
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+}
+
+/*样式重写*/
+
+.el-button,
+.el-card,
+.el-input__inner,
+.el-switch__core,
+.el-switch__button,
+.el-checkbox__inner,
+.el-textarea__inner,
+.el-menu {
+    border-radius: 0px !important;
+}
+
+.el-pagination {
+    padding: 0px;
+}
+
+.el-autocomplete-suggestion {
+    z-index: 10 !important;
+}
+
+.el-upload-list__item:hover .el-icon-close {
+    display: block !important;
+}
+
+/*自定义参数*/
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.card-pagination {
+    text-align: center;
+}
+
+.max-form {
+    max-width: 600px;
+}
+
+.avatar-box {
+    float: left;
+    .avatar-uploader {
+        .el-upload {
+            border: 1px dashed #d9d9d9;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            img {
+                display: block;
+                width: 178px;
+                height: 178px;
+                margin: auto;
+            }
+        }
+        .avatar-uploader-icon {
+            font-size: 28px;
+            color: #8c939d;
+            width: 178px;
+            height: 178px;
+            line-height: 178px;
+            text-align: center;
+        }
+    }
+}
+
+.QRCode {
+    float: left;
+    margin-left: 80px;
+}
+
+.text-nowrap {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
